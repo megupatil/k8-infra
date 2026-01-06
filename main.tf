@@ -17,7 +17,7 @@ module "vpc" {
 
   enable_nat_gateway        = false
   enable_dns_hostnames      = true
-  map_public_ip_on_launch   = true  
+  map_public_ip_on_launch   = true   # 👈 THIS FIXES THE NODE GROUP ERROR
 }
 
 ######################################
@@ -32,7 +32,7 @@ resource "aws_eks_cluster" "this" {
     subnet_ids = module.vpc.public_subnets
   }
 
-  # ✅ REQUIRED FOR LABS ENVIRONMENT
+  # ✅ REQUIRED FOR A LABS PORTAL
   upgrade_policy {
     support_type = "STANDARD"
   }
